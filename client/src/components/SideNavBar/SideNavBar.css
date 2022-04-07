@@ -1,0 +1,47 @@
+.full-nav {
+    margin: 0;
+    padding: 0;
+    width: 180px;
+    background-color: #1C2A39;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+.logo {
+    padding: 15px 10px;
+    align-content: center;
+    align-items: center;
+    max-width: 160px;
+    max-height: 34px;
+    object-fit: contain;
+}
+
+.logodiv{
+    width: 180px;
+    margin: 0
+}
+
+.nav-space {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    height: 20px;
+    justify-content: space-between;
+    padding-left: 10px;
+}
+.nav-title {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    box-sizing: border-box;
+    color: #535353
+}
+.nav-link {
+    display: flex;
+    font-size: 16px;
+    color: rgb(197, 211, 226);
+    padding-left: 10px;
+    align-items: center;
+
+}
