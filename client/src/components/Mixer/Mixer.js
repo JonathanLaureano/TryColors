@@ -44,17 +44,17 @@ function Mixer() {
     return hexColor 
   }
 
-  
-  const colorArray = []
+
+  const [colorArray, setColorArray] = useState([])
 
   function backgroundColorRender() {
     setBackgroundColor(averageColors(colorArray))
   }
 
-
+  
   const colorOptions = ["#FFED00","#FF0000","#FF00AB","#0047AB","#00EDFF","#00B500","#FFFFFF","#000000"]
   const colorPalette = colorOptions.map((color) => {
-    return <ColorCard backgroundColorRender={backgroundColorRender} colorArray={colorArray} color={color} />
+    return <ColorCard color={color} backgroundColorRender={backgroundColorRender} setColorArray={setColorArray} colorArray={colorArray} />
   })
 
     return (

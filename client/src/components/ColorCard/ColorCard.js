@@ -1,16 +1,14 @@
 import './ColorCard.css';
-import React from 'react'
+import React, { useState } from 'react'
 
-function ColorCard({ color, colorArray, backgroundColorRender }) {
+function ColorCard({ color, backgroundColorRender, setColorArray, colorArray }) {
 
-
+    const[parts, setParts] = useState(0)
     function handleClick() {
-        colorArray.push(color)
+        setColorArray([...colorArray, color])
         console.log(colorArray)
         backgroundColorRender()
-        let parts = document.querySelector(".colorPart")
-        let partsCount = parseInt(parts.textContent) + 1
-        parts.textContent = partsCount
+        setParts(parts + 1)
     }
 
     return (
@@ -18,7 +16,7 @@ function ColorCard({ color, colorArray, backgroundColorRender }) {
           <div className='palette'>
             <div className='colorholder'>
                 <div className='circle' style={{ "backgroundColor" : `${color}` }} onClick={handleClick}>
-                    <h3 className='colorPart'>0</h3>
+                    <h3 className='colorPart'>{parts}</h3>
                 </div>
                 <div>
                     <p>{color}</p>
