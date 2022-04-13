@@ -40,13 +40,21 @@ function Mixer() {
 
     let rgbColor = "rgb("+ red +","+ green +","+ blue +")"
     let hexColor = hexConvert(red, blue, green)
-    
-    return setBackgroundColor(hexColor) 
+    console.log(hexColor)
+    return hexColor 
   }
+
+  
+  const colorArray = []
+
+  function backgroundColorRender() {
+    setBackgroundColor(averageColors(colorArray))
+  }
+
 
   const colorOptions = ["#FFED00","#FF0000","#FF00AB","#0047AB","#00EDFF","#00B500","#FFFFFF","#000000"]
   const colorPalette = colorOptions.map((color) => {
-    return <ColorCard averageColors={averageColors} color={color} />
+    return <ColorCard backgroundColorRender={backgroundColorRender} colorArray={colorArray} color={color} />
   })
 
     return (
