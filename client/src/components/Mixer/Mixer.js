@@ -63,7 +63,7 @@ function Mixer() {
           <div>
             <div className='displaycolor'>
               <div className="background_display" >
-                <img className="background_display1" style={{ "backgroundColor" : {backgroundColor} }} src={require("./Transparentcopy.png")}/>
+                <img className="background_display1" style={{ "backgroundColor" : `${backgroundColor}` }} src={require("./Transparentcopy.png")}/>
               </div>
             </div>
             <div className='holder'>
