@@ -41,8 +41,13 @@ function Mixer() {
     let rgbColor = "rgb("+ red +","+ green +","+ blue +")"
     let hexColor = hexConvert(red, blue, green)
     
-    return hexColor 
+    return setBackgroundColor(hexColor) 
   }
+
+  const colorOptions = ["#FFED00","#FF0000","#FF00AB","#0047AB","#00EDFF","#00B500","#FFFFFF","#000000"]
+  const colorPalette = colorOptions.map((color) => {
+    return <ColorCard averageColors={averageColors} color={color} />
+  })
 
     return (
       <React.Fragment>
@@ -54,7 +59,7 @@ function Mixer() {
               </div>
             </div>
             <div className='holder'>
-              <ColorCard/>
+            {colorPalette.length === 0 ? <p>no results</p> :colorPalette}
             </div>
           </div>
       </React.Fragment>
