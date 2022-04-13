@@ -1,11 +1,62 @@
 import './Mixer.css';
-import React from 'react'
+import ColorCard from '../ColorCard/ColorCard';
+import React, { useState } from 'react'
 
 function Mixer() {
 
+  const [backgroundColor, setBackgroundColor] = useState('')
+
+  function cutHex(hex){
+    return hex.substring(1,7);
+  }
+  function hexToR(hex){
+    return parseInt((cutHex( hex )).substring( 0, 2 ), 16 )
+  }
+  function hexToG(hex){
+    return parseInt((cutHex( hex )).substring( 2, 4 ), 16 )
+  }
+  function hexToB(hex){
+    return parseInt((cutHex( hex )).substring( 4, 6 ), 16 )
+  }
+  function hexConvert(red, green, blue){
+    return "#"+((1<<24)+(red<<16)+(green<<8)+ blue).toString(16).slice(1);
+  }
+
+  function averageColors( colorArray ){
+    let red = 0, green = 0, blue = 0;
+
+    for ( let i = 0; i < colorArray.length; i++ ){
+        red += hexToR( "" + colorArray[ i ] + "" );
+        green += hexToG( "" + colorArray[ i ] + "" );
+        blue += hexToB( "" + colorArray[ i ] + "" );
+    }
+
+    //Average RGB
+    red = (red/colorArray.length);
+    green = (green/colorArray.length);
+    blue = (blue/colorArray.length);
+
+    console.log(red + ", " + green + ", " + blue);
+
+    let rgbColor = "rgb("+ red +","+ green +","+ blue +")"
+    let hexColor = hexConvert(red, blue, green)
+    
+    return hexColor 
+  }
+
     return (
       <React.Fragment>
-          <h1 className='nuts'>Big Nuts</h1>
+          <h1 className='nuts'>You've Pissed Me Off</h1>
+          <div>
+            <div className='displaycolor'>
+              <div className="background_display" >
+                <img className="background_display1" style={{ "backgroundColor" : {backgroundColor} }} src={require("./Transparentcopy.png")}/>
+              </div>
+            </div>
+            <div className='holder'>
+              <ColorCard/>
+            </div>
+          </div>
       </React.Fragment>
     )
   }

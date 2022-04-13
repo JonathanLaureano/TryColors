@@ -1,0 +1,68 @@
+.circle {
+    height: 69px;
+    width: 69px;
+    border-radius: 50%;
+}
+.color1 {
+    background-color: yellow;
+}
+.color2 {
+    background-color: red;
+}
+.color3 {
+    background-color: #FF00AB;
+}
+.color4 {
+    background-color: blue;
+}
+.color5 {
+    background-color: cyan;
+}
+.color6 {
+    background-color: green;
+}
+.color7 {
+    background-color: white;
+}
+.color8 {
+    background-color: black;
+}
+
+.colorPart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    transform: translateY(20%);
+}
+
+.colorPart1{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    transform: translateY(20%);
+}
+
+.palette {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin: auto;
+}
+
+.colorholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    padding: 5px;
+    padding-top: 10px;
+}
+
+p {
+    color:darkgrey;
+}

@@ -1,5 +1,55 @@
-.nuts {
+.sidebarleft{
+    color: rgb(188, 202, 217);
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    box-shadow: none;
+    overflow-y: auto;
     display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex: 1 0 auto;
+    z-index: 1200;
+    position: fixed;
+    top: 0px;
+    outline: currentcolor none 0px;
+    left: 0px;
+    border-right: 1px solid rgb(28, 42, 57);
+}
+
+.sidebarright{
+    background-color: rgb(28, 42, 57);
+    width: 100vh;
+    height: 100%;
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    top: 0px;
+    outline: currentcolor none 0px;
+    right: 0px;
+    border-right: 1px solid rgb(255, 0, 0);
+    overflow: hidden;
+}
+
+
+.main{
+    /* height: 100%; */
+    height: 100vh;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 10px;
+    background-color: #2C3A49;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 180px;
+}
+
+@media (max-width: 1000px) {
+    .main {
+        margin-left: 0;
+    }
 }

@@ -1,0 +1,38 @@
+.displaycolor {
+    display: flex;
+    align-items: center;
+    flex: 1 1 0%;
+    box-sizing: border-box;
+}
+
+.background_display {
+    object-fit: contain;
+    max-height: 60vh;
+    width: 99vh;
+    display: flex;
+    border-radius: 25px 25px 0% 0%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    background-image: url("./Transparent.png");
+    background-size: contain;
+}
+
+.background_display1 {
+    max-height: 60vh;
+    width: 99vh;
+    display: flex;
+    border-radius: 25px 25px 0% 0%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.holder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin: auto;
+}
