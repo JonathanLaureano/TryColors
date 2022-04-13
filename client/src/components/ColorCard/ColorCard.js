@@ -1,13 +1,13 @@
 import './ColorCard.css';
 import React, { useState } from 'react'
 
-function ColorCard({ color, backgroundColorRender, setColorArray, colorArray }) {
+function ColorCard({ color, setBackgroundColor, averageColors , setColorArray, colorArray }) {
 
     const[parts, setParts] = useState(0)
     function handleClick() {
+        setBackgroundColor(averageColors([...colorArray, color]))
         setColorArray([...colorArray, color])
         console.log(colorArray)
-        backgroundColorRender()
         setParts(parts + 1)
     }
 

@@ -32,29 +32,23 @@ function Mixer() {
     }
 
     //Average RGB
-    red = (red/colorArray.length);
-    green = (green/colorArray.length);
-    blue = (blue/colorArray.length);
+    red = Math.round(red/colorArray.length);
+    green = Math.round(green/colorArray.length);
+    blue = Math.round(blue/colorArray.length);
 
     console.log(red + ", " + green + ", " + blue);
 
     let rgbColor = "rgb("+ red +","+ green +","+ blue +")"
-    let hexColor = hexConvert(red, blue, green)
+    let hexColor = hexConvert(red,green,blue)
     console.log(hexColor)
     return hexColor 
   }
 
 
-  const [colorArray, setColorArray] = useState([])
-
-  function backgroundColorRender() {
-    setBackgroundColor(averageColors(colorArray))
-  }
-
-  
+  const [colorArray, setColorArray] = useState([])  
   const colorOptions = ["#FFED00","#FF0000","#FF00AB","#0047AB","#00EDFF","#00B500","#FFFFFF","#000000"]
   const colorPalette = colorOptions.map((color) => {
-    return <ColorCard color={color} backgroundColorRender={backgroundColorRender} setColorArray={setColorArray} colorArray={colorArray} />
+    return <ColorCard color={color} setBackgroundColor={setBackgroundColor} averageColors={averageColors} setColorArray={setColorArray} colorArray={colorArray} />
   })
 
     return (
