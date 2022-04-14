@@ -15,7 +15,7 @@
     justify-content: center;
     flex-direction: column;
     margin: auto;
-    background-image: url("./Transparent.png");
+    background-image: url("./Checkerboard.png");
     background-size: contain;
 }
 

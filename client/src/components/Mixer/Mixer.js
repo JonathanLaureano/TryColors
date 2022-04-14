@@ -41,14 +41,24 @@ function Mixer() {
     let rgbColor = "rgb("+ red +","+ green +","+ blue +")"
     let hexColor = hexConvert(red,green,blue)
     console.log(hexColor)
-    return hexColor 
+    return hexColor, rgbColor
   }
 
 
   const [colorArray, setColorArray] = useState([])  
   const colorOptions = ["#FFED00","#FF0000","#FF00AB","#0047AB","#00EDFF","#00B500","#FFFFFF","#000000"]
   const colorPalette = colorOptions.map((color) => {
-    return <ColorCard color={color} setBackgroundColor={setBackgroundColor} averageColors={averageColors} setColorArray={setColorArray} colorArray={colorArray} />
+    return <ColorCard 
+    color={color} 
+    setBackgroundColor={setBackgroundColor} 
+    averageColors={averageColors} 
+    setColorArray={setColorArray} 
+    colorArray={colorArray}
+    cutHex={cutHex}
+    hexToR={hexToR}
+    hexToG={hexToG}
+    hexToB={hexToB}
+    />
   })
 
     return (
