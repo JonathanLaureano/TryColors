@@ -17,7 +17,7 @@ function HomePage() {
             </div>
             <div className='main'>
                 <Switch>
-                    <Route path='/'>
+                    <Route exact path='/'>
                         <Mixer/>
                     </Route>
                     <Route path='/Game'>

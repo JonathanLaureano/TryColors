@@ -37,12 +37,11 @@
 }
 
 .colorPart1{
-    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    transform: translateY(20%);
+    transform: translateY(-80%);
 }
 
 .palette {
@@ -63,6 +62,18 @@
     padding-top: 10px;
 }
 
+.subtractcircle {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+}
+
+.percentage {
+    font-weight: 400;
+    color:rgb(204, 235, 255);
+}
+
 p {
-    color:darkgrey;
+    font-size: small;
+    color:rgb(204, 235, 255);
 }

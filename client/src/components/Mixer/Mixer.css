@@ -27,6 +27,8 @@
     align-items: center;
     justify-content: center;
     flex-direction: row;
+    box-shadow: 0px 0px 6px 0px rgba(0,0,0,1.0);
+    z-index: 10;
 }
 
 .holder {
@@ -35,4 +37,43 @@
     justify-content: center;
     flex-direction: row;
     margin: auto;
+}
+
+.color-Info {
+    position: absolute;
+    left: 4%;
+    padding: -30% ;
+    z-index: 11;
+}
+
+
+.showPalette {
+    position: absolute;
+    top: 11%;
+    left: 44%;
+    z-index: 11;
+}
+
+.fontweight{
+    font-weight: 400;
+    margin-top: -10%;
+}
+
+.fontweight1{
+    margin-bottom: -10%;
+}
+
+.colorpercentage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    height: 17px;
+}
+
+.colorpercentage1 {
+    align-items: left;
+    flex-direction: row;
+    width: 10px;
+    height: 17px;
 }
