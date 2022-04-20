@@ -1,0 +1,68 @@
+.TargetBox {
+    z-index: 11;
+    display: flex;
+    height: 60vh;
+    width: 49.5vh;
+}
+
+.TargetColor {
+    border-radius: 0px 25px 0% 0%;
+}
+
+.background_display2 {
+    height: 60vh;
+    width: 99vh;
+    display: flex;
+    border-radius: 25px 25px 0% 0%;
+    align-items:flex-end;
+    justify-content:right;
+    flex-direction: row;
+    box-shadow: 0px 0px 6px 0px rgba(0,0,0,1.0);
+    z-index: 10;
+}
+
+.background_display4 {
+    object-fit: contain;
+    height: 60vh;
+    width: 99vh;
+    display: flex;
+    border-radius: 25px 25px 0% 0%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    background-image: url("./Checkerboard.png");
+    background-size: contain;
+}
+
+.YourMix {
+    position: absolute;
+    left: 20%;
+    padding: -30% ;
+    z-index: 12;
+}
+
+.Target {
+    position: absolute;
+    right: 22%;
+    z-index: 12;
+}
+.color-Info1 {
+    position: absolute;
+    bottom: 38%;
+    left: 4%;
+    padding: -30% ;
+    z-index: 12;
+}
+
+.color-Info2 {
+    position: absolute;
+    bottom: 38%;
+    right: 4%;
+    padding: -30% ;
+    z-index: 12;
+}
+.fontweight2{
+    font-weight: 400;
+    margin-top: -10%;
+}
