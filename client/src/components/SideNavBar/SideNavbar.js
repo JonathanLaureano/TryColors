@@ -6,7 +6,9 @@ function SideNavBar() {
     return (
       <React.Fragment>
         <div className='full-nav'>
-            <img className='logo' src={require("./TryColorsLogo.png")} />
+            <div className='logodiv'>
+                <img className='logo' src={require("./TryColorsLogo.png")} />   
+            </div>
             <div className='nav-space'>
                 <span className='nav-title'>WORKSPACE</span>
             </div>

@@ -18,13 +18,13 @@ function HomePage() {
             <div className='main'>
                 <Switch>
                     <Route exact path='/'>
-                        <Mixer/>
+                        <SignIn/>
                     </Route>
                     <Route path='/Game'>
                         <Game/>
                     </Route>
-                    <Route path='/SignIn'>
-                        <SignIn/>
+                    <Route path='/Mixer'>
+                        <Mixer/>
                     </Route>
                     <Route path='/Colors'>
                         <Colors/>

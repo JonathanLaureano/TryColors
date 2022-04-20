@@ -9,15 +9,16 @@
 }
 
 .logo {
-    padding: 15px 10px;
+    /* padding: 5px 5px; */
     align-content: center;
     align-items: center;
-    max-width: 160px;
-    max-height: 34px;
+    width: 160px;
+    height: 34px;
     object-fit: contain;
 }
 
 .logodiv{
+    padding: 15px 10px;
     width: 180px;
     margin: 0
 }
