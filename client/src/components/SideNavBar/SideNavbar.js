@@ -4,8 +4,8 @@ import axios from 'axios'
 
 function SideNavBar({ user, setSignedIn, setUser }) {
 
-    let accountTitle = user ? "My Account" : "Sign In"
-    let logoutTernary = user ? <a className="nav-link" onClick={handleLogOut}>Log Out</a> : null
+    let accountTitle = user ? <a className="nav-link" href="/Palettes">My Palettes</a> : <a className="nav-link1" href="/">Sign In</a>
+    let logoutTernary = user ? <a className="nav-link1" onClick={handleLogOut}>Log Out</a> : null
 
     function handleLogOut() {
         axios.delete('/logout')
@@ -32,7 +32,7 @@ function SideNavBar({ user, setSignedIn, setUser }) {
                 <span className='nav-title'>ACCOUNT</span>
             </div>
             <div>
-                <a className="nav-link" href="/">{accountTitle}</a>
+                {accountTitle}
                 {logoutTernary}
             </div>
             <div className='nav-space'>

@@ -1,0 +1,33 @@
+.savedColorsHolder1 {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.paletteHeader1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+    height: 12vh;
+    width: 100%;
+    background-color: #3C4A59;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,1.0);
+    transform: translateY(-130%);
+}
+
+.paletteright {
+    color : #CFCFCF;
+    font-weight: 800;
+    margin: 5%;
+    padding: 10%;
+}
+
+.addedColorDetails1 {
+    height: 57vh;
+    width: 99%;
+    transform: translateY(-26%);
+}

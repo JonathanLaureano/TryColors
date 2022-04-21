@@ -3,15 +3,16 @@ import ColorCard from '../ColorCard/ColorCard';
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 
-function Mixer( user ) {
+function Mixer({ user }) {
 
   const [backgroundColor, setBackgroundColor] = useState('')
   const [colorName, setColorName] = useState('')
   const [divType, setDivType] = useState(true)
   const [addDisable, setAddDisable] = useState(false)
-  const [colorArray, setColorArray] = useState([])  
+  const [colorArray, setColorArray] = useState([]) 
+  const [colorAddArray, setColorAddArray] = useState([]) 
   const [colorOptions, setColorOptions] = useState(["#FFED00","#FF0000","#FF00AB","#0047AB","#00EDFF","#00B500","#FFFFFF","#000000"])
-  const [colorAddArray, setColorAddArray] = useState([])
+  
 
   function onDivClick() {
     setDivType(divType => !divType)
@@ -100,9 +101,9 @@ function Mixer( user ) {
   let backgroundBoolean = colorArray.length <= 0 ? "transparent" : `${backgroundColor}`
   let colorInfoBoolean = colorArray.length <= 0 ? "hidden" : "visible"
   let colorBarPercentage = ((1/colorArray.length)*99)
-  let colorAddBarPercentage = ((1/colorAddArray.length)*99)
+  let colorAddBarPercentage = ((1/colorAddArray.length)*100)
 
-  let saveTernary = user? <button onClick={handlePaletteSave}>Save Palette</button> : <h2>Sign In To Save Palettes</h2>
+  let saveTernary = user ? <button onClick={handlePaletteSave}>Save Palette</button> : <h2>Sign In To Save Palettes</h2>
 
   async function handleReset() {
     setColorArray([])
@@ -160,16 +161,19 @@ function Mixer( user ) {
   null : 
   <div className='savedColorsHolder'>
     <div className='addedColors'>
-      {colorAddArray.map((color) => {
-                return <div className='colorpercentage1' style ={{ "backgroundColor" : color, "width" : `${colorAddBarPercentage}vh` }}></div>
+      {divType ? null : colorAddArray.map((color) => {
+                return <div className='currentPalette' style ={{ "backgroundColor" : color.hexColor, "width" : `${colorAddBarPercentage}vh` }}></div>
       })}
     </div>
     <div className='paletteHeader'>
-      {saveTernary}
+      {divType ? null : saveTernary}
     </div>
     <div className='addedColorDetails'>
-      {colorAddArray.map((color) => {
-                return <div className='colorpercentage1' style ={{ "backgroundColor" : color }}></div>
+      {divType ? null : colorAddArray.map((color) => {
+                return <div className='currentPaletteDetails' style ={{ "backgroundColor" : color.hexColor }}>
+                  <h3 className='colorDetails' style={{ "color" : textColor(color.hexColor)}}>{color.name}</h3>
+                  <h5 className='colorDetails1' style={{ "color" : textColor(color.hexColor)}}>{color.hexColor.toUpperCase()}</h5>
+                </div>
       })}
     </div>
   </div>

@@ -47,6 +47,15 @@
 
 }
 
+.nav-link1 {
+    display: flex;
+    font-size: 16px;
+    color: rgb(197, 211, 226);
+    padding-left: 10px;
+    align-items: center;
+    text-decoration: underline;
+}
+
 .nav-link a.active {
     background-color: #04AA6D
 }
