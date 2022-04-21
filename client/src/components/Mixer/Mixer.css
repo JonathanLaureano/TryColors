@@ -77,3 +77,12 @@
     width: 10px;
     height: 17px;
 }
+
+.aRandomName {
+    transition: ease 1.5s;
+}
+
+.show-palette-active {
+    transition: ease 1.5s;
+    transform: translateY(87%) ;
+}

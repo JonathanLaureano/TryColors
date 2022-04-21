@@ -1,7 +1,19 @@
 import './SideNavBar.css';
 import React from 'react'
+import axios from 'axios'
 
-function SideNavBar() {
+function SideNavBar({ user, setSignedIn, setUser }) {
+
+    let accountTitle = user ? "My Account" : "Sign In"
+    let logoutTernary = user ? <a className="nav-link" onClick={handleLogOut}>Log Out</a> : null
+
+    function handleLogOut() {
+        axios.delete('/logout')
+          .then(r => {
+            setSignedIn(false);
+            setUser(null);
+        })
+    }
 
     return (
       <React.Fragment>
@@ -13,14 +25,15 @@ function SideNavBar() {
                 <span className='nav-title'>WORKSPACE</span>
             </div>
             <div>
-                <a className="nav-link" href="/">Mixer</a>
+                <a className="nav-link" href="/Mixer">Mixer</a>
                 <a className="nav-link" href="/Game">Game</a>
             </div>
             <div className='nav-space'>
                 <span className='nav-title'>ACCOUNT</span>
             </div>
             <div>
-                <a className="nav-link" href="/SignIn">Sign In</a>
+                <a className="nav-link" href="/">{accountTitle}</a>
+                {logoutTernary}
             </div>
             <div className='nav-space'>
                 <span className='nav-title'>GALLERY</span>

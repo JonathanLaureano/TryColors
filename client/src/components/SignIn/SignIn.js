@@ -1,12 +1,14 @@
 import './SignIn.css';
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
-function SignIn() {
+function SignIn({ setUser, setSignedIn }) {
 
   const [formType, setFormType] = useState(true)
   const [signUpUsername, setSignUpUsername] = useState("");
   const [signUpPassword, setSignUpPassword] = useState("");
+  let history = useHistory()
 
 
   // Log In:
@@ -14,8 +16,7 @@ function SignIn() {
   const [password, setPassword] = useState("");
 
   // Signed In:
-  const [signedIn, setSignedIn] = useState(false);
-  const [user, setUser] = useState(null)
+  
 
 
   function onFormClick() {
@@ -32,8 +33,7 @@ function SignIn() {
       .then(r => {
         console.log(r)
         setSignedIn(true)
-        window.location.reload();
-
+        history.push("/Mixer")
       })
       .catch(function (error) {
         if (error.response) {
@@ -45,7 +45,6 @@ function SignIn() {
           console.log('Error', error.message);
         }
       });
-
   }
 
   function handleLogInSubmit(e) {
@@ -59,8 +58,7 @@ function SignIn() {
       .then((r) => {
         setSignedIn(true)
         setUser(r.data)
-        window.location.reload();
-
+        history.push("/Mixer")
       })
       .catch(function (error) {
         if (error.response) {
@@ -72,15 +70,6 @@ function SignIn() {
           console.log('Error', error.message);
         }
       });
-  }
-
-  function handleLogOut() {
-    axios.delete('/logout')
-      .then(r => {
-        setSignedIn(false);
-        setUser(null);
-        window.location.reload();
-      })
   }
 
   useEffect(() => {
@@ -110,7 +99,7 @@ function SignIn() {
                   </div>
                   <div className="form-container sign-in-container">
                       <form className='modal-form' action="#">
-                          <h1 className='modal-signin-title'>Sign in</h1>
+                          <h1 className='modal-create'>Sign in</h1>
                           <input className='modal-input' type="username" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
                           <input className='modal-input' type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                           <button className='modal-button' onClick={handleLogInSubmit}>Sign In</button>

@@ -2,16 +2,21 @@ class PalettesController < ApplicationController
     
     def index
         palettes = Palette.all
-        render json: palettes, include: ["recipes.ingredient", "user"], status: :ok
+        render json: palettes, status: :ok
     end
 
     def show
         palette = find_palette
-        render json: palette, include: ["recipes.ingredient", "user"], status: :ok
+        render json: palette, status: :ok
     end
 
     def create
-        palette = Palette.create!(palette_params)
+        @user_id = @current_user.id
+        @palette = params[:palette]
+        palette = Palette.create!({
+            palette: @palette,
+            user_id: @user_id
+        })
         palette.save
         render json: palette, status: :created
     end

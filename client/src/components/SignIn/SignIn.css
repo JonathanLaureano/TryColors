@@ -44,21 +44,13 @@
 
 .modal-create{
 	font-family: 'Shippori Mincho', serif;
-	margin: 0;
-	margin-bottom: 3%;
-	color: #ffffff;
-	font-size: 230%;
-	text-shadow: 0 0 3vw #ffffff;
-}
-
-.modal-signin-title{
-	font-family: 'Cormorant SC', serif;	font-weight: bold;
+    font-weight: 400;
 	margin: 0;
 	margin-bottom: 3%;
 	color: #ffffff;
 	font-size: 200%;
+	text-shadow: 0 0 3vw #ffffff;
 }
-
 
 .modal-subtitle {
 	font-size: 14px;
@@ -119,7 +111,7 @@
 }
 
 .modal-form {
-	background-color: #000000;
+	background-color: #000000b8;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -131,6 +123,7 @@
 
 .modal-input {
 	background-color: rgb(0, 0, 0);
+    color: #DDDDDD;
 	border: none;
 	padding: 12px 15px;
 	margin: 8px 0;
@@ -184,7 +177,6 @@
 	top: 0;
 	height: 100%;
 	transition: all 0.6s ease-in-out;
-    opacity: 0.8;
 }
 
 .sign-in-container {
@@ -195,6 +187,7 @@
 
 .container.right-panel-active .sign-in-container {
 	transform: translateX(100%);
+    opacity: 0;
 }
 
 .sign-up-container {

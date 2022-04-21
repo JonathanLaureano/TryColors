@@ -13,10 +13,11 @@
 ActiveRecord::Schema.define(version: 2022_04_20_032025) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "hstore"
   enable_extension "plpgsql"
 
   create_table "palettes", force: :cascade do |t|
-    t.string "palette", default: [], array: true
+    t.hstore "palette", default: [], array: true
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

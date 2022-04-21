@@ -1,11 +1,21 @@
 import './Mixer.css';
 import ColorCard from '../ColorCard/ColorCard';
 import React, { useEffect, useState } from 'react'
+import axios from 'axios';
 
-function Mixer() {
+function Mixer( user ) {
 
   const [backgroundColor, setBackgroundColor] = useState('')
   const [colorName, setColorName] = useState('')
+  const [divType, setDivType] = useState(true)
+  const [addDisable, setAddDisable] = useState(false)
+  const [colorArray, setColorArray] = useState([])  
+  const [colorOptions, setColorOptions] = useState(["#FFED00","#FF0000","#FF00AB","#0047AB","#00EDFF","#00B500","#FFFFFF","#000000"])
+  const [colorAddArray, setColorAddArray] = useState([])
+
+  function onDivClick() {
+    setDivType(divType => !divType)
+}
 
   function cutHex(hex){
     return hex.substring(1,7);
@@ -72,11 +82,6 @@ function Mixer() {
     );
   }, [averageColors])
 
-
-
-
-  const [colorArray, setColorArray] = useState([])  
-  const [colorOptions, setColorOptions] = useState(["#FFED00","#FF0000","#FF00AB","#0047AB","#00EDFF","#00B500","#FFFFFF","#000000"])
   const colorPalette = colorOptions.map((color) => {
     return <ColorCard 
     color={color} 
@@ -95,6 +100,9 @@ function Mixer() {
   let backgroundBoolean = colorArray.length <= 0 ? "transparent" : `${backgroundColor}`
   let colorInfoBoolean = colorArray.length <= 0 ? "hidden" : "visible"
   let colorBarPercentage = ((1/colorArray.length)*99)
+  let colorAddBarPercentage = ((1/colorAddArray.length)*99)
+
+  let saveTernary = user? <button onClick={handlePaletteSave}>Save Palette</button> : <h2>Sign In To Save Palettes</h2>
 
   async function handleReset() {
     setColorArray([])
@@ -103,13 +111,77 @@ function Mixer() {
     setColorOptions(["#FFED00","#FF0000","#FF00AB","#0047AB","#00EDFF","#00B500","#FFFFFF","#000000"])
   }
 
+  function handleAdd() {
+    colorAddArray.push({
+      name : colorName,
+      hexColor : backgroundColor
+    })
+    let colorAdded = (colorAddArray.map((color) => {
+      return color.hexColor.includes(backgroundColor)
+    }))
+    let addBool = (arr) => arr.every(value => value === false)
+    let addTernary = !(addBool(colorAdded))
+    setAddDisable(addTernary)
+    console.log(colorAddArray)
+  }
+
+  useEffect(() => {
+    let colorAdded = (colorAddArray.map((color) => {
+      return color.hexColor.includes(backgroundColor)
+    }))
+    let addBool = (arr) => arr.every(value => value === false)
+    let addTernary = !(addBool(colorAdded))
+    setAddDisable(addTernary)
+  }, [backgroundColor])
+
+  function handlePaletteSave(e) {
+    e.preventDefault();
+    const saveDetails = {
+      palette : colorAddArray
+    }
+    axios.post("/palettes", saveDetails)
+      .then(r => {
+        console.log(r)
+        setColorAddArray([])
+      })
+      .catch(function (error) {
+        if (error.response) {
+          console.log(error.response.data.errors);
+          alert(error.response.data.errors)
+        } else if (error.request) {
+          console.log(error.request);
+        } else {
+          console.log('Error', error.message);
+        }
+      });
+  }
+
+  let paletteDisplay = divType ? 
+  null : 
+  <div className='savedColorsHolder'>
+    <div className='addedColors'>
+      {colorAddArray.map((color) => {
+                return <div className='colorpercentage1' style ={{ "backgroundColor" : color, "width" : `${colorAddBarPercentage}vh` }}></div>
+      })}
+    </div>
+    <div className='paletteHeader'>
+      {saveTernary}
+    </div>
+    <div className='addedColorDetails'>
+      {colorAddArray.map((color) => {
+                return <div className='colorpercentage1' style ={{ "backgroundColor" : color }}></div>
+      })}
+    </div>
+  </div>
+
     return (
       <React.Fragment>
-          <div>
-            <div className='displaycolor'>
-              <div className="background_display" >
+          {paletteDisplay}
+          <div className={divType ? "aRandomName" : "aRandomName show-palette-active" }>
+            <div className="displaycolor">
+              <div className="background_display">
                 <div>
-                  <button className='showPalette'>Show Palettes</button>
+                  <button className='showPalette' onClick={onDivClick}>Show Palettes</button>
                 </div>
                 <img className="background_display1" style={{ "backgroundColor" : backgroundBoolean }} src={require("./Transparentcopy.png")}/>
                 <div className="color-Info" style={{ "visibility" : colorInfoBoolean, "color" : textColor(backgroundColor)}}>
@@ -117,14 +189,14 @@ function Mixer() {
                   <h5>{colorName}</h5>
                   <h5 className='fontweight'>RGB: {hexToR(backgroundColor)}, {hexToG(backgroundColor)}, {hexToB(backgroundColor)}</h5>
                   <h5 className='fontweight'>Opacity: 100%</h5>
-                  <button>ADD</button> <button onClick={handleReset}>RESET</button>
+                  <button disabled={addDisable} onClick={handleAdd}>{addDisable ? "ADDED" : "ADD" }</button> <button onClick={handleReset}>RESET</button>
                 </div>
               </div>
             </div>
             <div className='colorpercentage' style={{ "backgroundColor" : backgroundBoolean }}>
               {colorArray.map((color) => {
                 return <div className='colorpercentage1' style ={{ "backgroundColor" : color, "width" : `${colorBarPercentage}vh` }}></div>
-              })}
+              }).sort()}
             </div>
             <div className='holder'>
             {colorPalette.length === 0 ? <p>no results</p> :colorPalette}
