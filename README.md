@@ -28,4 +28,4 @@ Details:
 
 Developed by Jonathan Laureano.
 
-TryColors.com for insporation
+TryColors.com for inspiration
