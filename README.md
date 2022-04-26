@@ -11,6 +11,7 @@
 A website that allows you to mix & match colors, and save them to a palette.
 
 Details:
+
 -Completed functions that allow you to mix, assess luminosity, and compute match percentage of hex colors
 
 -Recreated entire components from a website using the inspect tool from browser 
