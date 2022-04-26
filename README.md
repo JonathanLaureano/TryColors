@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# TryColors
 
-Things you may want to cover:
+<img src="src/assets/TryColorsLogo.png" width="300">
 
-* Ruby version
+**Demo Link**: http://trycolors.herokuapp.com/
 
-* System dependencies
+# Description
 
-* Configuration
+A website that allows you to mix & match colors, and save them to a palette.
 
-* Database creation
+Details:
+-Completed functions that allow you to mix, assess luminosity, and compute match percentage of hex colors
+-Recreated entire components from a website using the inspect tool from browser 
+-Dynamically loaded client & server side information 
+-Used conditional logic to keep functionality constant regardless of refresh or variable change 
 
-* Database initialization
+# GIFs
 
-* How to run the test suite
+<img src="src/assets/Trycolors.gif" width="500">
 
-* Services (job queues, cache servers, search engines, etc.)
+# Credits
 
-* Deployment instructions
-
-* ...
+Developed by Jonathan Laureano.

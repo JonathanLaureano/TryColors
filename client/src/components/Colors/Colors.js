@@ -5,7 +5,7 @@ function Colors() {
 
     return (
       <React.Fragment>
-          <h1 className='nuts'>Big Nuts</h1>
+          <h1 className='nuts'></h1>
       </React.Fragment>
     )
   }
