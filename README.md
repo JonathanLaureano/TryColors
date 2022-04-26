@@ -2,7 +2,7 @@
 
 # TryColors
 
-<img src="src/assets/TryColorsLogo.png" width="300">
+<img src="assets/TryColorsLogo.png" width="300">
 
 **Demo Link**: http://trycolors.herokuapp.com/
 
@@ -18,7 +18,7 @@ Details:
 
 # GIFs
 
-<img src="src/assets/Trycolors.gif" width="500">
+<img src="assets/Trycolors.gif" width="500">
 
 # Credits
 
