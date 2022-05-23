@@ -1,5 +1,3 @@
-# README
-
 # TryColors
 
 <img src="assets/TryColorsLogo.png" width="300">
